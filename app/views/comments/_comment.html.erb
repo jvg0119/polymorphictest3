@@ -1,0 +1,16 @@
+
+
+<% if commentable.comments.any? %>
+  <h4><%= pluralize commentable.comments.count, "comment" %>:</h4>
+
+    <% commentable.comments.each do |comment| %>
+    <div>
+      <p><%= comment.body %></p>
+      <p><%= link_to "delete comment", [commentable, comment], method: :delete %></p>
+    </div>
+
+    <% end %>
+
+<% else %>
+  <h4>No comment available:</h4>
+<% end %>
